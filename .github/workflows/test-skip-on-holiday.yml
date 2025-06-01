@@ -1,6 +1,5 @@
 name: E2E Test - Skip On Holiday
 on:
-  workflow_dispatch:
   push:
 
 jobs:
@@ -20,7 +19,7 @@ jobs:
           holidays: "${{ steps.date.outputs.today }}"
           timezone: "UTC"
           fail-on-holiday: true
-          continue-on-error: true
+        continue-on-error: true
       - name: Assert skipped
         if: always()
         run: |
