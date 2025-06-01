@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 # check_holiday.sh: Checks if today is a holiday and sets outputs for GitHub Actions
 
-# Cross-platform timezone validation
-if ! today=$(TZ="$1" date +%F 2>/dev/null); then
-  echo "❌ Invalid timezone: '$1'"
-  exit 2
-fi
+TZ="$1" date
 
+today=$(TZ="$1" date +%F)
 echo "📅 Local date in timezone '$1': $today"
 
 is_holiday=false

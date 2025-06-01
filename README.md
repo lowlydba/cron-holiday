@@ -74,6 +74,9 @@ This tutorial will help you set up `cron-holiday` in your GitHub Actions workflo
 | `timezone`        | ❌        | IANA timezone name (e.g. `America/New_York`). Defaults to UTC.         |
 | `fail-on-holiday` | ❌        | If `true`, fails the job when today is a holiday. Defaults to `false`. |
 
+> [!NOTE]
+> Any non-IANA timezone will be treated as UTC. If you need to use a specific timezone, ensure it is an IANA timezone name.
+
 ### Outputs
 
 | Name         | Description                                                                   |
