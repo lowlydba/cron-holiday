@@ -97,3 +97,21 @@ You can set the holidays as a repository or organization level environment varia
 
  *"On holiday!"* - not just a practical check, but a nod to the [Green Day song](https://genius.com/Green-day-holiday-lyrics).
  We believe your CI deserves some punk rock energy, and you the day off.
+
+## Default Holidays
+
+If you do not specify the `holidays` input, it defaults to the USA Federal Holidays for 2025:
+
+- 2025-01-01 (New Year's Day)
+- 2025-01-20 (Martin Luther King, Jr. Day)
+- 2025-02-17 (Washington’s Birthday)
+- 2025-05-26 (Memorial Day)
+- 2025-06-19 (Juneteenth National Independence Day)
+- 2025-07-04 (Independence Day)
+- 2025-09-01 (Labor Day)
+- 2025-10-13 (Columbus Day)
+- 2025-11-11 (Veterans Day)
+- 2025-11-27 (Thanksgiving Day)
+- 2025-12-25 (Christmas Day)
+
+You can override this by specifying your own list of dates in the `holidays` input.

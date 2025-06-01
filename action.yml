@@ -9,6 +9,7 @@ inputs:
   holidays:
     description: 'Comma-separated list of YYYY-MM-DD holiday dates (e.g., 2025-01-01,2025-07-04)'
     required: true
+    default: '2025-01-01,2025-01-20,2025-02-17,2025-05-26,2025-06-19,2025-07-04,2025-09-01,2025-10-13,2025-11-11,2025-11-27,2025-12-25'
 
   timezone:
     description: 'IANA timezone (e.g., America/New_York). Defaults to UTC.'
