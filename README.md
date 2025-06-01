@@ -15,7 +15,7 @@ This tutorial will help you set up `cron-holiday` in your GitHub Actions workflo
    ```yaml
    jobs:
      check-holiday:
-       uses: your-org/cron-holiday@v1
+       uses: lowlydba/cron-holiday@v1.0.0
        with:
          holidays: "2025-01-01,2025-07-04,2025-12-25"
          timezone: "America/New_York"
