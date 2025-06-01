@@ -20,7 +20,9 @@ jobs:
           holidays: "${{ steps.date.outputs.today }}"
           timezone: "UTC"
           fail-on-holiday: true
+          continue-on-error: true
       - name: Assert skipped
+        if: always()
         run: |
           if [ "${{ steps.holiday.outputs.on_holiday }}" != "true" ]; then
             echo "❌ Did not skip on holiday as expected!" && exit 1
