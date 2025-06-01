@@ -1,0 +1,29 @@
+name: E2E Test - Should Run on Non-Holiday
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  check-holiday:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run cron-holiday (should run)
+        id: holiday
+        uses: ./
+        with:
+          holidays: "2025-05-27"
+          timezone: "UTC"
+          fail-on-holiday: false
+      - name: Should run on non-holiday
+        if: ${{ steps.holiday.outputs.on_holiday != 'true' }}
+        run: |
+          echo "This SHOULD run on 2025-05-28!"
+      - name: Assert not skipped
+        run: |
+          if [ "${{ steps.holiday.outputs.on_holiday }}" = "true" ]; then
+            echo "❌ Incorrectly detected holiday!" && exit 1
+          else
+            echo "✅ Correctly detected non-holiday."
+          fi

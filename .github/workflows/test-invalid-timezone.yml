@@ -1,0 +1,23 @@
+name: E2E Test - Invalid Timezone
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  check-invalid-timezone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run cron-holiday with invalid timezone
+        id: holiday
+        uses: ./
+        with:
+          holidays: "2025-01-01,2025-07-04"
+          timezone: "NotAReal/Timezone"
+          fail-on-holiday: false
+      - name: Assert failure on invalid timezone
+        if: success() # This step should not run if the previous step fails as expected
+        run: |
+          echo "❌ The workflow did not fail as expected for an invalid timezone!"
+          exit 1
